@@ -1,0 +1,62 @@
+@import './colors.scss';
+
+:root {
+    /* BASE */
+
+    --base: #{$base};
+    --text: #{$text};
+    --background: #{$background};
+    --background2: #{$background2};
+    --brand: #{$brand};
+    --brandAccent: #{$brandAccent};
+    --brandAccent2: #{$brandAccent2};
+    --critical: #{$critical};
+
+    /* TEXT */
+
+    --textBase: #{$textBase};
+    --textSecondary: #{$textSecondary};
+    --textBrand: #{$textBrand};
+    --textInverse: #{$textInverse};
+    --textInverseSecondary: #{$textInverseSecondary};
+    --textBrandDark: #{$textBrandDark};
+    --textBrandAccentDark: #{$textBrandAccentDark};
+
+    /* BACKGROUND */
+
+    --backgroundBase: #{$backgroundBase};
+    --backgroundSurface: #{$backgroundSurface};
+    --backgroundBrand: #{$backgroundBrand};
+    --backgroundBrandDark: #{$backgroundBrandDark};
+    --backgroundBrandSecondary: #{$backgroundBrandSecondary};
+    --backgroundBrandAccent: #{$backgroundBrandAccent};
+    --backgroundBrandAccentSecondary: #{$backgroundBrandAccentSecondary};
+
+    /* BORDER */
+
+    --borderBrand: #{$borderBrand};
+    --borderInverse: #{$borderInverse};
+    --borderSystem: #{$borderSystem};
+    --borderSystemDark: #{$borderSystemDark};
+    --borderCritical: #{$borderCritical};
+
+    /* INTERACTIVE */
+
+    --controlBrandBackground: #{$controlBrandBackground};
+    --controlBrandBackgroundHover: #{$controlBrandBackgroundHover};
+    --controlBrandText: #{$controlBrandText};
+    --controlBrandAccentBackground: #{$controlBrandAccentBackground};
+    --controlBrandAccentBackgroundHover: #{$controlBrandAccentBackgroundHover};
+    --controlBrandSecondaryBackground: #{$controlBrandSecondaryBackground};
+    --controlBrandSecondaryBackgroundHover: #{$controlBrandSecondaryBackgroundHover};
+    --controlBrandSecondaryText: #{$controlBrandSecondaryText};
+    --controlBrandAccent2SecondaryBackground: #{$controlBrandAccent2SecondaryBackground};
+    --controlBrandAccent2SecondaryBackgroundHover: #{$controlBrandAccent2SecondaryBackgroundHover};
+    --controlBrandAccent2SecondaryText: #{$controlBrandAccent2SecondaryText};
+    --controlPrimaryInverseBackground: #{$controlPrimaryInverseBackground};
+    --controlPrimaryInverseBackgroundHover: #{$controlPrimaryInverseBackgroundHover};
+    --controlPrimaryInverseText: #{$controlPrimaryInverseText};
+    --controlSecondaryInverseBackground: #{$controlSecondaryInverseBackground};
+    --controlSecondaryInverseBackgroundHover: #{$controlSecondaryInverseBackgroundHover};
+    --controlSecondaryInverseText: #{$controlSecondaryInverseText};
+}

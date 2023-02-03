@@ -9,7 +9,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
     mode: process.env.NODE_ENV,
-    entry: './resources/app/app.ts',
+    entry: './resources/app/app.js',
     output: {
         path: path.resolve(__dirname, './dist'),
         publicPath: '/',
@@ -132,6 +132,9 @@ module.exports = {
     devtool: '#eval-source-map',
     plugins: [new VueLoaderPlugin()],
 }
+
+const htmlTemplate = './resources/app/index.html'
+
 if (process.env.NODE_ENV === 'production') {
     module.exports.devtool = '#source-map'
     module.exports.plugins = (module.exports.plugins || [])
@@ -143,9 +146,8 @@ if (process.env.NODE_ENV === 'production') {
             }),
             new HtmlWebpackPlugin({
                 title: 'PRODUCTION prerender-spa-plugin',
-                template: 'index.html',
+                template: htmlTemplate,
                 filename: path.resolve(__dirname, 'dist/index.html'),
-                favicon: 'favicon.ico',
             }),
         ])
         .concat(prerender)
@@ -160,9 +162,8 @@ if (process.env.NODE_ENV === 'production') {
         }),
         new HtmlWebpackPlugin({
             title: 'DEVELOPMENT prerender-spa-plugin',
-            template: 'index.html',
+            template: htmlTemplate,
             filename: 'index.html',
-            favicon: 'favicon.ico',
         }),
     ])
 }

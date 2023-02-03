@@ -1,0 +1,214 @@
+
+body {
+    font-size: toRem(14);
+    -webkit-font-smoothing: antialiased;
+    color: var(--textBase);
+    font-family: $mainFontFamily, -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    background-color: var(--backgroundBase); //-webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    min-width: 320px;
+}
+
+img {
+    height: auto;
+    width: auto;
+}
+
+.container {
+    box-sizing: border-box;
+    padding: 0 5%;
+    margin: 0 auto;
+    max-width: $maxRems;
+    width: 100%;
+
+    @include media-tablet {
+        padding: 0 6.15%;
+    }
+
+    @include media-tabletLate {
+        padding: 0 5.2%;
+    }
+
+    @include media-desktop {
+        padding: 0 toRem(120);
+    }
+
+    &--header {
+        @include media-desktop {
+            padding: 0 toRem(40);
+        }
+    }
+}
+
+html {
+    font-size: 12px;
+
+    @media (min-width: 400px) {
+        font-size: 13.2px;
+    }
+
+    @include media-tablet {
+        font-size: 12px;
+    }
+
+    @include media-desktop {
+        font-size: 1vw;
+    }
+
+    @media (min-width: $maxRems) {
+        font-size: 14.4px;
+    }
+}
+
+main,
+label {
+    display: block;
+}
+
+.button,
+button {
+    border: none;
+    cursor: pointer;
+    font-family: $mainFontFamily, -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica', 'Arial', 'sans-serif';
+    background: none;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    text-align: center;
+}
+
+*:focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+input,
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: $mainFontFamily, -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica', 'Arial', 'sans-serif';
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+
+    @include media-touch-device {
+        font-size: 16px !important;
+    }
+
+    &::-webkit-input-placeholder {
+        font-size: inherit;
+        font-family: inherit;
+        color: inherit;
+    }
+
+    &::-moz-placeholder {
+        font-size: inherit;
+        font-family: inherit;
+        color: inherit;
+    }
+
+    &:-moz-placeholder {
+        font-size: inherit;
+        font-family: inherit;
+        color: inherit;
+    }
+
+    &:-ms-input-placeholder {
+        font-size: inherit;
+        font-family: inherit;
+        color: inherit;
+    }
+}
+
+textarea {
+    resize: none;
+
+    @include media-touch-device {
+        line-height: 1.4 !important;
+    }
+}
+
+[data-src] {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.lazyload {
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.lazyloaded {
+    opacity: 1;
+}
+
+.os-windows {
+    @media (hover: hover) {
+        /* width */
+        ::-webkit-scrollbar {
+            width: toRem(4);
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            //background-color: $backgroundBase;
+            border-radius: toRem(4);
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            //background-color: $borderBase;
+            border-radius: toRem(4);
+        }
+    }
+}
+
+.fade-page {
+    &-enter {
+        opacity: 0;
+
+        &-active {
+            transition: 0.4s ease-in;
+            transition-property: opacity;
+        }
+
+        &-to {
+            opacity: 1;
+        }
+    }
+
+    &-leave {
+        opacity: 1;
+
+        &-active {
+            transition: 0.4s ease-out;
+            transition-property: opacity;
+        }
+
+        &-to {
+            opacity: 0;
+        }
+    }
+}
+
+.scene {
+    position: relative;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.pin {
+    width: 100%;
+}
+
+@include newFont(icon, 'icons/iconfont', 400);

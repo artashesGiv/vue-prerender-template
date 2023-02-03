@@ -1,0 +1,11 @@
+$mainFontFamily: 'Onest';
+$icon: 'icon', sans-serif;
+
+$tags: (
+    h2: (toRem(24), toRem(32), toRem(40), (toRem(32), toRem(40), toRem(52))),
+    h3: (toRem(24), toRem(24), toRem(32), (toRem(32), toRem(32), toRem(40))),
+    h4: (toRem(20), toRem(24), toRem(24), (toRem(28), toRem(32), toRem(32))),
+    p1: (toRem(20), toRem(20), toRem(20), (toRem(28))),
+    p2: (toRem(16), toRem(16), toRem(16), (toRem(22))),
+    p3: (toRem(14), toRem(14), toRem(14), (toRem(20))),
+);

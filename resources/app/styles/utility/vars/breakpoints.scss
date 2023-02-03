@@ -1,0 +1,12 @@
+//breakpoints
+$mobileBig: 375px;
+$maxMobileSmall: $mobileBig - 1px;
+$tablet: 650px;
+$maxMobile: $tablet - 1px;
+$tabletLate: 768px;
+$maxMobileLate: $tabletLate - 1px;
+$desktop: 1200px;
+$freezeRem: 1440px;
+$maxTablet: $desktop - 1px;
+$containerCollapse: 1600px;
+$maxRems: 1440px;

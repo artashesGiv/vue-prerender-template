@@ -1,5 +1,6 @@
 <template lang="pug">
-    .b-index Index Page
+    .b-index
+        h1 Index Page
 </template>
 
 <script lang="ts">

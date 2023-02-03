@@ -1,0 +1,60 @@
+
+/* BASE */
+
+$base:           hsla(210deg, 10%, 15%, 1);
+$text:           hsla(210deg, 10%, 15%, 1);
+$background:     hsla(0deg, 0%, 100%, 1);
+$background2:    hsla(200deg, 15%, 96%, 1);
+$brand:          hsla(220deg, 70%, 60%, 1);
+$brandAccent:    hsla(32deg, 80%, 50%, 1);
+$brandAccent2:   hsla(85deg, 55%, 47%, 1);
+$critical:       hsla(15deg, 75%, 50%, 1);
+
+/* TEXT */
+
+$textBase:                 $text;
+$textSecondary:            #{hsla-new($text, (a: 0.5))};
+$textBrand:                #{hsla-new($brand, (l: lightness($brand) - 5))};
+$textInverse:              $background;
+$textInverseSecondary:     #{hsla-new($background, (a: 0.65))};
+$textBrandDark:            #{hsla-new($brand, (l: lightness($brand) - 30))};
+$textBrandAccentDark:      #{hsla-new($brandAccent, (l: lightness($brandAccent) - 15))};
+
+/* BACKGROUND */
+
+$backgroundBase:                        $background;
+$backgroundSurface:                     $background2;
+$backgroundBrand:                       $brand;
+$backgroundBrandDark:                   #{hsla-new($brand, (l: lightness($brand) - 20))};
+$backgroundBrandSecondary:              #{hsla-new($brand, (l: lightness($brand) + 32))};
+$backgroundBrandAccent:                 $brandAccent;
+$backgroundBrandAccentSecondary:        #{hsla-new($brandAccent, (l: lightness($brandAccent) + 42))};
+
+
+/* BORDER */
+
+$borderBrand:                   $brand;
+$borderInverse:                 $background;
+$borderSystem:                  #{hsla-new($background2, (l: lightness($background2) - 5))};
+$borderSystemDark:              #{hsla-new($background2, (l: lightness($background2) - 15))};
+$borderCritical:                $critical;
+
+/* INTERACTIVE */
+
+$controlBrandBackground:                            $brand;
+$controlBrandBackgroundHover:                       #{hsla-new($brand, (l: lightness($brand) - 10))};
+$controlBrandText:                                  $background;
+$controlBrandAccentBackground:                      $brandAccent;
+$controlBrandAccentBackgroundHover:                 #{hsla-new($brandAccent, (l: lightness($brandAccent) - 10))};
+$controlBrandSecondaryBackground:                   #{hsla-new($brand, (a: 0.2))};
+$controlBrandSecondaryBackgroundHover:              #{hsla-new($brand, (l: lightness($brand) - 10, a: 0.35))};
+$controlBrandSecondaryText:                         #{hsla-new($brand, (l: lightness($brand) - 5))};
+$controlBrandAccent2SecondaryBackground:            #{hsla-new($brandAccent2, (a: 0.25))};
+$controlBrandAccent2SecondaryBackgroundHover:       #{hsla-new($brandAccent2, (l: lightness($brandAccent2) - 10, a: 0.35))};
+$controlBrandAccent2SecondaryText:                  #{hsla-new($brandAccent2, (l: lightness($brandAccent2) - 5))};
+$controlPrimaryInverseBackground:                   $background;
+$controlPrimaryInverseBackgroundHover:              #{hsla-new($background, (a: 0.75))};
+$controlPrimaryInverseText:                         #{hsla-new($brand, (l: lightness($brand) - 5))};
+$controlSecondaryInverseBackground:                 #{hsla-new($background, (a: 0.75))};
+$controlSecondaryInverseBackgroundHover:            #{hsla-new($background, (a: 0.6))};
+$controlSecondaryInverseText:                       #{hsla-new($brand, (l: lightness($brand) - 5))};

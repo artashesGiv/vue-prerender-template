@@ -1,0 +1,58 @@
+//@import './vars/spaces';
+
+@function hsla-str($color) {
+    @return unquote('hsla(#{hue($color)/1deg}, #{saturation($color)}, #{lightness($color)}, #{alpha($color)})');
+}
+
+@function hsla-new($color, $options) {
+    $newL: lightness($color);
+    $newA: alpha($color);
+    $newS: saturation($color);
+
+    @if (map-get($options, 'l')) {
+        $newL: map-get($options, 'l');
+    }
+
+    @if (map-get($options, 's')) {
+        $newS: map-get($options, 's');
+    }
+
+    @if (map-get($options, 'a')) {
+        $newA: map-get($options, 'a');
+    }
+
+    @return hsla(hue($color)/1deg, $newS, $newL, $newA);
+}
+
+@function toRem($size) {
+    $remSize: $size / 12 * 1rem;
+
+    @return $remSize;
+}
+
+@function freezeRem($size) {
+    $newSize: $size * 1.2 * 1px;
+
+    @return $newSize;
+}
+
+@function to-unit($value) {
+    @if type-of($value) != 'string' {
+        @error 'Value for `to-unit` should be a string.';
+    }
+
+    $units: ('px': 1px, '%': 1%, 'ch': 1ch, 'em': 1em, 'rem': 1rem, 'vw': 1vw, 'vh': 1vh, 'vmin': 1vmin, 'vmax': 1vmax);
+    $parsed-unit: false;
+
+    @each $unit in $units {
+        @if (str-index($value, nth($unit, 1))) {
+            $parsed-unit: nth($unit, 2);
+        }
+    }
+
+    @if (not $parsed-unit) {
+        @error 'Invalid unit `#{$value}`.';
+    }
+
+    @return $parsed-unit;
+}
