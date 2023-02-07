@@ -152,7 +152,7 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         noInfo: false,
-        port: process.env.PORT || 2000,
+        port: process.env.PORT || 8888,
         contentBase: path.join(__dirname, 'public'),
     },
     devtool: '#eval-source-map',
@@ -160,7 +160,6 @@ module.exports = {
 }
 
 const htmlTemplate = './resources/app/index.html'
-const port = 2000
 
 if (isProd) {
     module.exports.devtool = '#source-map'
@@ -184,7 +183,6 @@ if (isProd) {
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"development"',
-                PORT: port,
             },
         }),
         new HtmlWebpackPlugin({
