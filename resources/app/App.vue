@@ -1,11 +1,5 @@
 <template lang="pug">
-    .b-app#app {{content.title}}
-        button.__button(
-            @click="$setLanguage('ru')"
-        ) ru
-        button.__button(
-            @click="$setLanguage('en')"
-        ) en
+    .b-app#app
         router-view
 </template>
 
@@ -14,11 +8,7 @@ import { Component, Mixins } from 'vue-property-decorator'
 import MetaTitle from '@/shared/lib/mixins/utility/title'
 
 @Component
-export default class Root extends Mixins(MetaTitle) {
-    get content() {
-        return this.$content.meta
-    }
-}
+export default class Root extends Mixins(MetaTitle) {}
 </script>
 
 <style lang="scss" src="./styles/critical.scss" />
