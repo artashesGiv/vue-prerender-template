@@ -5,8 +5,22 @@
 @import './utility/app';
 @import './utility/swiper';
 @import './utility/scroll-bar';
-//@import '../../shared/shared.critical';
+@import '../../shared/shared.critical';
 //@import '../../entities/entities.critical';
 //@import '../../features/features.critical';
 //@import '../../widgets/widgets.critical';
 @import '../../pages/pages.critical';
+
+.app {
+    &__button {
+        height: toRem(20);
+        width: toRem(50);
+        border: 1px solid #000;
+        background-color: brown;
+        color: white;
+
+        & + & {
+            margin-left: toRem(20);
+        }
+    }
+}

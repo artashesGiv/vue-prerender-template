@@ -1,4 +1,7 @@
 {
-    "email" : "sales@acsolutions.ai",
-    "telegramBot" : "sales@acsolutions.ai"
+    "meta": {
+        "domain": "prerender.template.ru"
+    },
+    "email": "sales@acsolutions.ai",
+    "telegramBot": "sales@acsolutions.ai"
 }

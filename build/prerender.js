@@ -4,14 +4,11 @@ const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
 module.exports = [
     new PrerenderSPAPlugin({
-        staticDir: path.join(__dirname, 'dist'),
-        routes: [ '/', '/about', '/contact' ],
+        staticDir: path.join(__dirname, '../dist'),
+        routes: ['/ru', '/en'],
         renderer: new Renderer({
-            inject: {
-                foo: 'bar'
-            },
             headless: true,
-            renderAfterDocumentEvent: 'render-event'
+            renderAfterDocumentEvent: 'render-event',
         }),
-    })
+    }),
 ]

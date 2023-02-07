@@ -3,17 +3,33 @@ const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const prerender = require('./prerender')
+const prerender = require('./build/prerender')
 const isProd = process.env.NODE_ENV === 'production'
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const { VueLoaderPlugin } = require('vue-loader')
+
+const plugins = [new VueLoaderPlugin()]
+
+if (isProd) {
+    plugins.push(
+        new webpack.optimize.ModuleConcatenationPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '[name].min.[chunkhash].css',
+            attributes: {
+                rel: 'preload',
+                onload: 'this.onload=null;this.rel="stylesheet"',
+                as: 'style',
+            },
+        })
+    )
+}
 
 module.exports = {
     mode: process.env.NODE_ENV,
-    entry: './resources/app/app.js',
+    entry: ['./resources/app/app.js'],
     output: {
         path: path.resolve(__dirname, './dist'),
         publicPath: '/',
-        filename: 'build.js',
+        filename: '[name].js',
     },
     module: {
         rules: [
@@ -30,10 +46,6 @@ module.exports = {
                         ],
                     },
                 },
-            },
-            {
-                test: /\.css$/,
-                use: ['vue-style-loader', 'css-loader'],
             },
             {
                 test: /\.vue$/,
@@ -71,7 +83,26 @@ module.exports = {
                 },
             },
             {
-                test: /\.scss$/,
+                test: /critical\.scss$/,
+                use: isProd
+                    ? [
+                          'vue-style-loader',
+                          'css-loader',
+                          {
+                              loader: 'postcss-loader',
+                              options: {
+                                  sourceMap: true,
+                                  config: {
+                                      path: `./build/postcss.config.js`,
+                                  },
+                              },
+                          },
+                          'sass-loader',
+                      ]
+                    : ['vue-style-loader', 'css-loader', 'sass-loader'],
+            },
+            {
+                test: /main\.scss$/,
                 use: isProd
                     ? [
                           MiniCssExtractPlugin.loader,
@@ -130,12 +161,12 @@ module.exports = {
         port: process.env.PORT || 2000,
     },
     devtool: '#eval-source-map',
-    plugins: [new VueLoaderPlugin()],
+    plugins,
 }
 
 const htmlTemplate = './resources/app/index.html'
 
-if (process.env.NODE_ENV === 'production') {
+if (isProd) {
     module.exports.devtool = '#source-map'
     module.exports.plugins = (module.exports.plugins || [])
         .concat([
@@ -145,9 +176,9 @@ if (process.env.NODE_ENV === 'production') {
                 },
             }),
             new HtmlWebpackPlugin({
-                title: 'PRODUCTION prerender-spa-plugin',
                 template: htmlTemplate,
                 filename: path.resolve(__dirname, 'dist/index.html'),
+                minify: true,
             }),
         ])
         .concat(prerender)
@@ -161,7 +192,6 @@ if (process.env.NODE_ENV === 'production') {
             },
         }),
         new HtmlWebpackPlugin({
-            title: 'DEVELOPMENT prerender-spa-plugin',
             template: htmlTemplate,
             filename: 'index.html',
         }),

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "es2020",
     "lib": [
       "ES2020",
@@ -16,6 +16,7 @@
     "noImplicitAny": false,
     "importHelpers": true,
     "baseUrl": "./",
+    "strictPropertyInitialization": false,
     "paths": {
       "@/*": ["resources/*"]
     }
