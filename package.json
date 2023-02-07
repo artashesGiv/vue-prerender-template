@@ -7,7 +7,9 @@
         "build": "rimraf dist && cross-env NODE_ENV=production webpack --progress --hide-modules && npm start",
         "start": "node server",
         "webp": "node ./resources/shared/lib/utils/npm/webpConvert.js -- optimize",
-        "icons": "node ./resources/shared/lib/utils/npm/makeIconfont.js"
+        "icons": "node ./resources/shared/lib/utils/npm/makeIconfont.js",
+        "storybook": "start-storybook -s ./public/ -p 6006",
+        "build-storybook": "build-storybook"
     },
     "engines": {
         "node": ">=7.0",
@@ -28,6 +30,14 @@
     "devDependencies": {
         "@babel/core": "^7.20.12",
         "@babel/preset-env": "^7.3.1",
+        "@storybook/addon-actions": "^6.5.16",
+        "@storybook/addon-essentials": "^6.5.16",
+        "@storybook/addon-interactions": "^6.5.16",
+        "@storybook/addon-links": "^6.5.16",
+        "@storybook/builder-webpack4": "^6.5.16",
+        "@storybook/manager-webpack4": "^6.5.16",
+        "@storybook/testing-library": "^0.0.13",
+        "@storybook/vue": "^6.5.16",
         "autoprefixer": "^9.8.8",
         "babel-loader": "^8.0.5",
         "babel-plugin-module-resolver": "^3.1.1",
