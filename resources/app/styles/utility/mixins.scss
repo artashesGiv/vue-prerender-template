@@ -25,30 +25,22 @@
 @mixin getPositionStyle($style, $direction, $value) {
     @if $direction == $style {
         #{ $direction }: $value;
-    }
-
-    @else if $direction == vertical {
+    } @else if $direction == vertical {
         $styleNameTop: '#{ $style }-top';
         $styleNameBottom: '#{ $style }-bottom';
 
         #{$styleNameTop}: $value;
         #{$styleNameBottom}: $value;
-    }
-
-    @else if $direction == horizontal {
+    } @else if $direction == horizontal {
         $styleNameLeft: #{$style} + '-left';
         $styleNameRight: #{$style} + '-right';
 
         #{$styleNameLeft}: $value;
         #{$styleNameRight}: $value;
         #{ $style }: 0 $value;
-    }
-
-    @else if $direction == both {
+    } @else if $direction == both {
         #{ $style }: $value;
-    }
-
-    @else {
+    } @else {
         $styleName: '#{ $style }-#{ $direction }';
 
         #{ $styleName }: #{$value};
@@ -68,9 +60,7 @@
                 }
 
                 @include getPositionStyle($styleName, $direction, $value);
-            }
-
-            @else {
+            } @else {
                 @if (nth(map-get($spaces, $spaceLevel), 1) == nth(map-get($spaces, $spaceLevel), 2)) {
                     @media (max-width: $maxTablet) {
                         $value: nth(map-get($spaces, $spaceLevel), 1);
@@ -91,9 +81,7 @@
 
                         @include getPositionStyle($styleName, $direction, $value);
                     }
-                }
-
-                @else if (nth(map-get($spaces, $spaceLevel), 2) == nth(map-get($spaces, $spaceLevel), 3)) {
+                } @else if (nth(map-get($spaces, $spaceLevel), 2) == nth(map-get($spaces, $spaceLevel), 3)) {
                     @media (max-width: $maxMobileLate) {
                         $value: nth(map-get($spaces, $spaceLevel), 1);
 
@@ -113,9 +101,7 @@
 
                         @include getPositionStyle($styleName, $direction, $value);
                     }
-                }
-
-                @else {
+                } @else {
                     @media (max-width: $maxMobileLate) {
                         $value: nth(map-get($spaces, $spaceLevel), 1);
 
@@ -158,9 +144,7 @@
                 $value: nth(map-get($spaces, $spaceLevel), 1);
 
                 @include getPositionStyle(padding, $direction, $value);
-            }
-
-            @else {
+            } @else {
                 @if (nth(map-get($spaces, $spaceLevel), 1) == nth(map-get($spaces, $spaceLevel), 2)) {
                     @media (max-width: $maxTablet) {
                         $value: nth(map-get($spaces, $spaceLevel), 1);
@@ -173,9 +157,7 @@
 
                         @include getPositionStyle(padding, $direction, $value);
                     }
-                }
-
-                @else if (nth(map-get($spaces, $spaceLevel), 2) == nth(map-get($spaces, $spaceLevel), 3)) {
+                } @else if (nth(map-get($spaces, $spaceLevel), 2) == nth(map-get($spaces, $spaceLevel), 3)) {
                     @media (max-width: $maxMobileLate) {
                         $value: nth(map-get($spaces, $spaceLevel), 1);
 
@@ -187,9 +169,7 @@
 
                         @include getPositionStyle(padding, $direction, $value);
                     }
-                }
-
-                @else {
+                } @else {
                     @media (max-width: $maxMobileLate) {
                         $value: nth(map-get($spaces, $spaceLevel), 1);
 
@@ -221,9 +201,7 @@
                 nth(map-get($tags, $tagName), 1) ==
                 nth(map-get($tags, $tagName), 3) {
                 font-size: nth(map-get($tags, $tagName), 1);
-            }
-
-            @else if nth(map-get($tags, $tagName), 1) == nth(map-get($tags, $tagName), 2) {
+            } @else if nth(map-get($tags, $tagName), 1) == nth(map-get($tags, $tagName), 2) {
                 @media (max-width: $maxTablet) {
                     font-size: nth(map-get($tags, $tagName), 1);
                 }
@@ -231,9 +209,7 @@
                 @media (min-width: $desktop) {
                     font-size: nth(map-get($tags, $tagName), 3);
                 }
-            }
-
-            @else if nth(map-get($tags, $tagName), 2) == nth(map-get($tags, $tagName), 3) {
+            } @else if nth(map-get($tags, $tagName), 2) == nth(map-get($tags, $tagName), 3) {
                 @media (max-width: $maxMobileLate) {
                     font-size: nth(map-get($tags, $tagName), 1);
                 }
@@ -241,9 +217,7 @@
                 @media (min-width: $tabletLate) {
                     font-size: nth(map-get($tags, $tagName), 2);
                 }
-            }
-
-            @else {
+            } @else {
                 @media (max-width: $maxMobileLate) {
                     font-size: nth(map-get($tags, $tagName), 1);
                 }
@@ -269,9 +243,7 @@
                 @media (min-width: $desktop) {
                     line-height: nth(nth(map-get($tags, $tagName), 4), 3);
                 }
-            }
-
-            @else {
+            } @else {
                 line-height: nth(map-get($tags, $tagName), 4);
             }
 
@@ -303,9 +275,7 @@
                 }
 
                 @include getPositionStyle($styleName, $direction, $value);
-            }
-
-            @else {
+            } @else {
                 @if (nth(map-get($spaces, $spaceLevel), 1) == nth(map-get($spaces, $spaceLevel), 2)) {
                     @media (max-width: $maxTablet) {
                         $value: nth(map-get($spaces, $spaceLevel), 1);
@@ -326,9 +296,7 @@
 
                         @include getPositionStyle($styleName, $direction, $value);
                     }
-                }
-
-                @else if (nth(map-get($spaces, $spaceLevel), 2) == nth(map-get($spaces, $spaceLevel), 3)) {
+                } @else if (nth(map-get($spaces, $spaceLevel), 2) == nth(map-get($spaces, $spaceLevel), 3)) {
                     @media (max-width: $maxMobile) {
                         $value: nth(map-get($spaces, $spaceLevel), 1);
 
@@ -348,9 +316,7 @@
 
                         @include getPositionStyle($styleName, $direction, $value);
                     }
-                }
-
-                @else {
+                } @else {
                     @media (max-width: $maxMobile) {
                         $value: nth(map-get($spaces, $spaceLevel), 1);
 
@@ -392,20 +358,14 @@
     @if $position == 'vertical' {
         top: 50%;
         transform: translateY(-50%);
-    }
-
-    @else if $position == 'horizontal' {
+    } @else if $position == 'horizontal' {
         left: 50%;
         transform: translateX(-50%);
-    }
-
-    @else if $position == 'both' {
+    } @else if $position == 'both' {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-    }
-
-    @else if $position == 'stretch' {
+    } @else if $position == 'stretch' {
         top: 0;
         left: 0;
         width: 100%;

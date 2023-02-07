@@ -1,5 +1,3 @@
-//@import './vars/spaces';
-
 @function hsla-str($color) {
     @return unquote('hsla(#{hue($color)/1deg}, #{saturation($color)}, #{lightness($color)}, #{alpha($color)})');
 }

@@ -5,9 +5,14 @@ import createRouter from './providers/router'
 import { content, languages, staticContent } from './providers/content'
 import { providers } from '../shared/lib'
 import browserDetect from 'vue-browser-detect-plugin'
+import { IconBase } from '../shared/lib/ui/IconBase'
 
 Vue.use(browserDetect)
 Vue.use(VueRouter)
+
+// VUE COMPONENTS
+
+Vue.component('icon-base-component', IconBase)
 
 const router = createRouter()
 

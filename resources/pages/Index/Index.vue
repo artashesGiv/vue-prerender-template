@@ -1,6 +1,12 @@
 <template lang="pug">
     .b-index
         h1 Index Page
+        icon-base-component(
+            name="plus"
+        )
+        img(
+            src="/images/test/logo.svg"
+        )
 </template>
 
 <script lang="ts">
