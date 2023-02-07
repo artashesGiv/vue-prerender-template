@@ -18,6 +18,7 @@ app.use(serveStatic(path.join(__dirname, 'dist')))
 app.use('/public', serve('./public', true))
 app.use('/images', serve('./public/images', true))
 app.use('/fonts', serve('./public/fonts', true))
+app.use('/favicon', serve('./public/favicon', true))
 
 const port = +process.env.PORT + 1 || 9999
 
