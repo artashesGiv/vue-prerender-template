@@ -5,7 +5,7 @@
             name="plus"
         )
         img(
-            src="/public/images/test/logo.svg"
+            src="/images/test/logo.svg"
         )
 </template>
 

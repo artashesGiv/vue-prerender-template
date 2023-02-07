@@ -14,11 +14,6 @@ if (isProd) {
         new webpack.optimize.ModuleConcatenationPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].min.[chunkhash].css',
-            attributes: {
-                rel: 'preload',
-                onload: 'this.onload=null;this.rel="stylesheet"',
-                as: 'style',
-            },
         })
     )
 }
@@ -28,7 +23,6 @@ module.exports = {
     entry: ['./resources/app/app.js'],
     output: {
         path: path.resolve(__dirname, './dist'),
-        publicPath: '/',
         filename: '[name].js',
     },
     module: {
@@ -159,12 +153,14 @@ module.exports = {
         historyApiFallback: true,
         noInfo: false,
         port: process.env.PORT || 2000,
+        contentBase: path.join(__dirname, 'public'),
     },
     devtool: '#eval-source-map',
     plugins,
 }
 
 const htmlTemplate = './resources/app/index.html'
+const port = 2000
 
 if (isProd) {
     module.exports.devtool = '#source-map'
@@ -188,7 +184,7 @@ if (isProd) {
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"development"',
-                PORT: 2000,
+                PORT: port,
             },
         }),
         new HtmlWebpackPlugin({
