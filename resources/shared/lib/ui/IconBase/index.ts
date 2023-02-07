@@ -1,5 +1,3 @@
-import IconBase from "./IconBase.vue"
+import IconBase from './IconBase.vue'
 
-export {
-    IconBase
-}
+export { IconBase }

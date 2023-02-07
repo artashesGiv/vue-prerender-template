@@ -1,5 +1,3 @@
 import PictureLazy from './PictureLazy.vue'
 
-export {
-    PictureLazy,
-}
+export { PictureLazy }
