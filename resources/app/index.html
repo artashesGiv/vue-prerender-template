@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="preload" href="<%= htmlWebpackPlugin.files.css[0] %>" as="style">
     <link rel="image_src" href>
 
     <!--    meta title-->
@@ -65,6 +64,8 @@
 
     <!--    polyfills-->
     <script src="https://polyfill.io/v3/polyfill.min.js?version=3.111.0&features=Array.prototype.includes%2CObject.entries%2CObject.assign%2CPromise"></script>
+
+    <link rel="preload" href="<%= htmlWebpackPlugin.files.css[0] %>" as="style">
 </head>
 <body>
 <div id="app"></div>
