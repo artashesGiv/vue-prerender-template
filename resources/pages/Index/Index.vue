@@ -1,18 +1,11 @@
 <template lang="pug">
     .b-index
-        h1 Index Page
-        button.__button(
+        button(
             @click="$setLanguage('ru')"
-        ) ru
-        button.__button(
+        ) RU
+        button(
             @click="$setLanguage('en')"
-        ) en
-        image-lazy-component(
-            src="/images/test/logo.svg"
-        )
-        img(
-            src="/images/test/logo.svg"
-        )
+        ) EN
 </template>
 
 <script lang="ts">

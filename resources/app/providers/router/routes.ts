@@ -5,14 +5,6 @@ import { content } from '@/app/providers/content'
 
 const redirect = (to: Route) => {
     const { lang } = to.params
-
-    // console.log(`params: lang=${lang}`) // , currentLang=${currentLang}
-    // console.log(
-    //     `route path from:'${to.path}' redirect to:/${
-    //         lang /* ?? currentLang*/ ?? 'ru'
-    //     }`
-    // )
-
     return `/${lang /* ?? currentLang*/ ?? 'ru'}`
 }
 
